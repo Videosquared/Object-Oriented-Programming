@@ -1,0 +1,18 @@
+Tutorial 2 
+
+Task 1 --
+
+- Division by zero 
+- Array index starts at 0, and this would be calling the 4th value which doesnt exist
+- when something has a null inside the vaiable and you call it
+- When you convert a non integer string to a number format 
+
+Task 2 --
+
+- 
+
+
+Task 3 --
+
+
+Task 4 --
