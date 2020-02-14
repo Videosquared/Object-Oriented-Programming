@@ -21,7 +21,65 @@ public class FoxHoundUI {
     public static final int MENU_EXIT = 2;
 
     public static void displayBoard(String[] players, int dimension) {
-        // TODO implement me
+        int x_dim = dimension + 4;
+        int y_dim = dimension + 4;
+        String[][] output = new String[x_dim][y_dim];
+
+        for (int i = 0; i < x_dim; i++) {
+            for (int j = 0; j < y_dim; j++) {
+                output[i][j] = FoxHoundUtils.PRINT_SPACER;
+            }
+        }
+
+        for (int i = 2; i < x_dim - 2; i++) {
+            for (int j = 2; j < y_dim - 2; j++) {
+                output[i][j] = ".";
+            }
+        }
+        /** PRINTS F*/
+        for (int j = 2; j < x_dim - 2; j++) {
+            for (int i = 2; i < y_dim - 2; i++) {
+                if (FoxHoundUtils.isFox((FoxHoundUtils.intToString(j - 2, i - 1)), players)) {
+                    output[j][i] = "F";
+                }
+            }
+        }
+
+        /** This will be printing the HOUNDS*/
+        for (int j = 2; j < x_dim - 2; j++) {
+            for (int i = 2; i < y_dim - 2; i++) {
+                if (FoxHoundUtils.isHound((FoxHoundUtils.intToString(j - 2, i - 1)), players)) {
+                    output[j][i] = "H";
+                }
+            }
+        }
+
+        for (int j = 2; j < x_dim - 2; j++) {
+            output[j][0] = String.valueOf((char) ('A' + (j - 2)));
+            output[j][y_dim - 1] = String.valueOf((char) ('A' + (j - 2)));
+        }
+
+        if (dimension < 10) {
+            for (int j = 2; j < y_dim - 2; j++) {
+                output[0][j] = String.valueOf(1 + (j - 2));
+                output[x_dim - 1][j] = String.valueOf(1 + (j - 2));
+            }
+        } else {
+            output[0][0] += FoxHoundUtils.PRINT_SPACER;
+            output[0][y_dim - 1] += FoxHoundUtils.PRINT_SPACER;
+
+            for (int j = 2; j < y_dim - 2; j++) {
+                output[0][j] = String.format("%02d", (1 + (j - 2)));
+                output[x_dim - 1][j] = String.format("%02d", (1 + (j - 2)));
+            }
+        }
+
+        for (int i = 0; i < y_dim; i++) {
+            for (int j = 0; j < x_dim; j++) {
+                System.out.print(output[j][i]);
+            }
+            System.out.println();
+        }
     }
 
     /**
