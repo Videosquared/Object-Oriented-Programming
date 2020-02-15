@@ -136,7 +136,7 @@ public class FoxHoundUIBasicTest {
     }
 
     // ------------------------- positionQuery --------------------
-
+/*
     private void checkPosQueryOutput(int dim, String expectedStdOut, String expectedStdErr, String inputLine) {
         Scanner TEST_IN = new Scanner(new ByteArrayInputStream(inputLine.getBytes()));
 
@@ -239,5 +239,5 @@ public class FoxHoundUIBasicTest {
         TEST_IN.close();
 
         assertEquals("Resulting path not as expected.", expected, result.toString());
-    }
+    }*/
 }

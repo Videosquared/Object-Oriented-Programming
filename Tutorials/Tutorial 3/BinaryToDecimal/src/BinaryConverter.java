@@ -3,7 +3,7 @@ public class BinaryConverter {
     public static int binaryToDecimal(int binaryNumber){
         int decimal = 0;
         int p = 0;
-        while(decimal == 0){
+        while(binaryNumber != 0){
             int temp = binaryNumber%10;
             decimal += temp*Math.pow(2, p);
             binaryNumber = binaryNumber/10;

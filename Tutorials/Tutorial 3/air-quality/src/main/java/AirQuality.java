@@ -21,10 +21,19 @@ public class AirQuality {
         // TODO: finish implementing this to return the maximum DAQI out of all
         int ozoneDAQI = DAQI.getOzoneDAQI(ozone);
         int nitrogenDioxideDAQI = DAQI.getNitrogenDioxideDAQI(nitrogenDioxide);
+        int sulphuerDioxideDAQI = DAQI.getSulphurDioxideDAQI(sulphurDioxide);
+        int pm25DAQI = DAQI.getPM25DAQI(pm25);
+        int pm10DAQI = DAQI.getPM10DAQI(pm10);
 
-        if (ozoneDAQI > nitrogenDioxideDAQI) {
-            return ozoneDAQI;
+
+        int[] array = {ozoneDAQI, nitrogenDioxideDAQI, sulphuerDioxideDAQI,pm25DAQI ,pm10DAQI};
+        int max = array[0];
+
+        for (int i = 1; i < array.length; i++) {
+            if (max <= array[i]) {
+                max = array[i];
+            }
         }
-        return nitrogenDioxideDAQI;
+        return max;
     }
 }

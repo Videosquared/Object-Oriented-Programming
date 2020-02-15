@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FoxHoundUtilsBasicTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-02-15T00:15:06" hostname="Videosquared1" time="0.01">
+  <properties/>
+  <testcase name="testIsValidMoveDestOccupied" classname="FoxHoundUtilsBasicTest" time="0.002"/>
+  <testcase name="testIsValidMovePositive" classname="FoxHoundUtilsBasicTest" time="0.005"/>
+  <testcase name="testIsValidMoveInvalidFigureAtOrigin" classname="FoxHoundUtilsBasicTest" time="0.0"/>
+  <testcase name="testInitialisePositionsNegativeDim" classname="FoxHoundUtilsBasicTest" time="0.0"/>
+  <testcase name="testInitialisePositionsDefaultDim" classname="FoxHoundUtilsBasicTest" time="0.002"/>
+  <testcase name="testIsValidMoveEmptyOrigin" classname="FoxHoundUtilsBasicTest" time="0.0"/>
+  <system-out><![CDATA[F9
+F7
+D9
+D7
+E2
+C2
+E6
+E4
+C6
+C4
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ErrorHandlingReturnTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-02-11T21:16:15" hostname="Videosquared1" time="0.005">
+  <properties/>
+  <testcase name="testSpam" classname="ErrorHandlingReturnTest" time="0.003"/>
+  <testcase name="testBirthdayGreetings" classname="ErrorHandlingReturnTest" time="0.002"/>
+  <system-out><![CDATA[All the best to your 36. birthday Peter
+]]></system-out>
+  <system-err><![CDATA[ERROR: The given age must be larger zero but is: -5
+ERROR: The given age must be larger zero but is: 0
+]]></system-err>
+</testsuite>

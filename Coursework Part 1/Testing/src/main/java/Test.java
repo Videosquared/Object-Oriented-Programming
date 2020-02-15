@@ -17,7 +17,7 @@ public class Test {
 
     public static void main(String[] args) {
         int dimension = 8;
-        String[] atest = {"B1","D1","F1","H1","H5"};
+        String[] atest = {"B1","D1","F1","H1","D4"};
         String[] btest = {"B1", "D1", "F1", "H1", "J1", "L1", "N1", "P12", "R1", "T1", "V1", "X1", "Z1", "F26"};
 
         String[] start_string = initialisePositions(dimension);
@@ -32,7 +32,7 @@ public class Test {
 */
 
         displayBoard(start_string, dimension);
-        System.out.println(isValidMove(8, atest, 'H', "D1", "C2"));
+        System.out.println(isValidMove(8, start_string, 'F', start_string[start_string.length-1], "D7"));
         //System.out.println(stringToInt("B12"));
         //System.out.println(intToString(0, 0));
         //System.out.println(isDestinationValid("E1", dimension));
@@ -218,7 +218,7 @@ public class Test {
 
     public static boolean isDestinationOccupied(String destination, String[] players) {
         boolean flag = false;
-        for (int i = 0; i < players.length - 1; i++) {
+        for (int i = 0; i < players.length; i++) {
             if (destination.equals(players[i])) {
                 flag = true;
                 break;
@@ -255,7 +255,16 @@ public class Test {
             String temp3 = intToString(xOrigin - 1, yOrigin + 1);
             String temp4 = intToString(xOrigin - 1, yOrigin - 1);
 
+            if (temp1.equals(destination) || temp2.equals(destination) || temp3.equals(destination) || temp4.equals(destination)) {
+                flag = true;
+            }
+        } else {
+            String temp1 = intToString(xOrigin + 1, yOrigin + 1);
+            String temp2 = intToString(xOrigin - 1, yOrigin + 1);
 
+            if (temp1.equals(destination) || temp2.equals(destination)) {
+                flag = true;
+            }
         }
 
 

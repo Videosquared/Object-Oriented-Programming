@@ -31,6 +31,11 @@ public class FoxHoundUtils {
     /** */
     public static final String PRINT_SPACER = " ";
 
+    public static void main(String[] args) {
+        String[] players = {"B1","D1","F1","H1","C2"};
+        System.out.println(isValidMove(8, players, 'H', "B1", "C2"));
+    }
+
 
     public static String[] initialisePositions(int dimension) {
 
@@ -75,10 +80,22 @@ public class FoxHoundUtils {
 
     public static String intToString(int x, int y) {
         String output = String.valueOf((char) ('A' + x));
-        output += y;
+        output += (y + 1);
         //System.out.println(output);
         return output;
     }
+
+    public static String stringToInt(String position) {
+        String output = "";
+
+        output += String.valueOf(position.charAt(0) - 'A');
+        int temp = Integer.parseInt(position.substring(1));
+        //int temp = Integer.parseInt(position.replaceAll("[^0-9]", ""));
+        output += String.valueOf(temp - 1);
+
+        return output;
+    }
+
 
     public static boolean isFox(String position, String[] players) {
         return position.equals(players[players.length - 1]);
@@ -111,28 +128,88 @@ public class FoxHoundUtils {
             throw new NullPointerException();
         }
 
+        boolean flag = false;
 
-
-
-        return false;
-    }
-
-    public static boolean isOriginFigureSupplied(String origin, char figure, String[] players) {
-        if (figure == HOUND_FIELD) {
-
-        } else if () {
-
+        if (isOriginTheFigureSupplied(origin, figure, players) && !isDestinationOccupied(destination, players) && isDestinationValid(destination, dim) && isOneDiagonalMove(origin, destination, figure)) {
+            flag = true;
         }
 
-            return false;
+        return flag;
     }
 
-    public static boolean isDestinationOccupied() {
 
+    public static boolean isOriginTheFigureSupplied(String origin, char figure, String[] players) {
+        boolean flag = false;
+        if (figure == HOUND_FIELD) {
+            for (int i = 0; i < players.length -1; i++) {
+                if (origin.equals(players[i])) {
+                    flag = true;
+                    break;
+                }
+            }
+            return flag;
+        } else if (figure == FOX_FIELD) {
+            if (origin.equals(players[players.length - 1])) {
+                flag = true;
+            }
+            return flag;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
-    public static boolean isDestinationValid() {
+    public static boolean isDestinationOccupied(String destination, String[] players) {
+        boolean flag = false;
+        for (int i = 0; i < players.length; i++) {
+            if (destination.equals(players[i])) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
 
+    public static boolean isDestinationValid(String destination, int dimension) {
+        boolean flag = false;
+
+        String temp = (stringToInt(destination));
+        int x = temp.charAt(0) - '0';
+        temp = temp.substring(1);
+        int y = Integer.parseInt(temp);
+
+        if (x >= 0 && x < dimension && y >= 0 && y < dimension) {
+            flag = true;
+        }
+
+        return flag;
+    }
+
+    public static boolean isOneDiagonalMove(String origin, String destination, char figure) {
+        boolean flag = false;
+        String tempOrigin = (stringToInt(origin));
+        int xOrigin = tempOrigin.charAt(0) - '0';
+        tempOrigin = tempOrigin.substring(1);
+        int yOrigin = Integer.parseInt(tempOrigin);
+
+        if (figure == FOX_FIELD) {
+            String temp1 = intToString(xOrigin + 1, yOrigin + 1);
+            String temp2 = intToString(xOrigin + 1, yOrigin - 1);
+            String temp3 = intToString(xOrigin - 1, yOrigin + 1);
+            String temp4 = intToString(xOrigin - 1, yOrigin - 1);
+
+            if (temp1.equals(destination) || temp2.equals(destination) || temp3.equals(destination) || temp4.equals(destination)) {
+                flag = true;
+            }
+        } else {
+            String temp1 = intToString(xOrigin + 1, yOrigin + 1);
+            String temp2 = intToString(xOrigin - 1, yOrigin + 1);
+
+            if (temp1.equals(destination) || temp2.equals(destination)) {
+                flag = true;
+            }
+        }
+
+        return flag;
     }
 
 }
