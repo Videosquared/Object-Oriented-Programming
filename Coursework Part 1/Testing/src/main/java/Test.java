@@ -16,13 +16,22 @@ public class Test {
 
 
     public static void main(String[] args) {
-        int dimension = 8;
+        int dimension = 26;
         String[] atest = {"B1","D1","F1","H1","D4"};
         String[] btest = {"B1", "D1", "F1", "H1", "J1", "L1", "N1", "P12", "R1", "T1", "V1", "X1", "Z1", "F26"};
+
+        System.out.println(atest[0].length());
+
 
         String[] start_string = initialisePositions(dimension);
 
         System.out.println(Arrays.toString(start_string));
+
+        String start = String.valueOf('A');
+        String end = String.valueOf((char)('A' + (dimension - 1)));
+
+        System.out.println("Provide origin and destination coordinates.");
+        System.out.println(String.format("Enter two positions between %s%d - %s%d:",start, 1, end, dimension));
 
         /*String test = "H"+"E"+"L"+"L"+"O";
         System.out.println(test);*/
