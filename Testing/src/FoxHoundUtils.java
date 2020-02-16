@@ -172,11 +172,18 @@ public class FoxHoundUtils {
 
     public static boolean isFoxWin(String foxPos) {
         boolean flag = false;
+        int x,y;
 
         String temp = (stringToInt(foxPos));
-        int x = temp.charAt(0) - '0';
-        temp = temp.substring(1);
-        int y = Integer.parseInt(temp);
+        if (temp.length() == 3) {
+            x = temp.charAt(0) - '0';
+            temp = temp.substring(1);
+            y = Integer.parseInt(temp);
+        } else {
+            x = Integer.parseInt(temp.substring(0, 2));
+            temp = temp.substring(2);
+            y = Integer.parseInt(temp);
+        }
 
         if (y == 0) {
             flag = true;
@@ -258,10 +265,19 @@ public class FoxHoundUtils {
 
     public static boolean isOneDiagonalMove(String origin, String destination, char figure) {
         boolean flag = false;
+        int xOrigin;
+        int yOrigin;
         String tempOrigin = (stringToInt(origin));
-        int xOrigin = tempOrigin.charAt(0) - '0';
-        tempOrigin = tempOrigin.substring(1);
-        int yOrigin = Integer.parseInt(tempOrigin);
+
+        if (tempOrigin.length() == 3) {
+            xOrigin = tempOrigin.charAt(0) - '0';
+            tempOrigin = tempOrigin.substring(1);
+            yOrigin = Integer.parseInt(tempOrigin);
+        } else {
+            xOrigin = Integer.parseInt(tempOrigin.substring(0, 2));
+            tempOrigin = tempOrigin.substring(2);
+            yOrigin = Integer.parseInt(tempOrigin);
+        }
 
         if (figure == FOX_FIELD) {
             String temp1 = intToString(xOrigin + 1, yOrigin + 1);
