@@ -21,10 +21,10 @@ public class Test {
         String[] players = {"B1","D1","F1","H1","E8"};
         //System.out.println(isValidMove(8, players, 'F', "E8", "D7"));
         //System.out.println(isFoxWin("K1"));
-        System.out.println(stringToInt("B1"));
-        //String temp = "1000";
+        //System.out.println(stringToInt("B1"));
+        String temp = "HELLO";
         //int x = Integer.parseInt(temp.substring(2));
-        //System.out.println(x);
+        System.out.println(temp.charAt(0));
     }
 
     public static String intToString(int x, int y) {

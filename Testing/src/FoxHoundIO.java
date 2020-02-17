@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.util.Scanner;
 
@@ -35,27 +32,29 @@ public class FoxHoundIO {
         String[] tempPlayers = new String[5];
         String[] temp = new String[6];
         String tempInput = "";
-        File file = new File(path.toString());
+        BufferedReader reader;
 
-        Scanner scanner = null;
         try {
-            scanner = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            System.err.println("ERROR: File loading failed.");
+            reader = new BufferedReader(new FileReader(path.toString()));
+            tempInput = reader.readLine();
+            reader.close();
+        } catch (IOException e){
+            throw new IllegalArgumentException("ERROR: File read error.");
         }
-        assert scanner != null;
-        while (scanner.hasNextLine()) {
-            tempInput = scanner.nextLine();
-        }
-        scanner.close();
 
-        tempTurn = tempInput.charAt(1);
+        tempTurn = tempInput.charAt(0);
         temp = tempInput.split(" ");
         System.arraycopy(temp, 1, tempPlayers, 0, 5);
 
-        if (tempTurn == FoxHoundUtils.FOX_FIELD || tempTurn == FoxHoundUtils.HOUND_FIELD) {
-            nextTurn = tempTurn;
-            System.arraycopy(tempPlayers, 0, players, 0, 5);
+        if (tempInput.charAt(1) == ' ') {
+            if (tempTurn == FoxHoundUtils.FOX_FIELD || tempTurn == FoxHoundUtils.HOUND_FIELD) {
+                nextTurn = tempTurn;
+                System.arraycopy(tempPlayers, 0, players, 0, 5);
+            } else {
+                System.err.println("ERROR: Wrong file format.");
+            }
+        } else {
+            throw new IllegalArgumentException("ERROR: Wrong file format.");
         }
 
         return nextTurn;
