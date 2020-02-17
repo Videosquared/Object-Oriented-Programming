@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 /**
  * A utility class for the fox hound program.
- * 
+ *
  * It contains helper functions to check the state of the game
  * board and validate board coordinates and figure positions.
  */

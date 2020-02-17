@@ -20,9 +20,9 @@ public class FoxHoundUtilsBasicTest {
         String[] expected = defaultPlayers;
 
         String[] result = FoxHoundUtils.initialisePositions(dimension);
-
+        
         assertNotNull("Returned position array not expected to be null.", result);
-
+        
         assertArrayEquals("Returned positions not as expected.", expected, result);
     }
 
@@ -141,7 +141,7 @@ public class FoxHoundUtilsBasicTest {
 
         boolean result = FoxHoundUtils.isValidMove(dim, players, figure, origin, dest);
 
-        assertFalse("Move is expected to be invalid if the " +
+        assertFalse("Move is expected to be invalid if the " + 
             "figure in the origin does not match the given figure type.", result);
 
         players = new String[]{"B1","D1","F1","H1","E8"};
@@ -151,7 +151,7 @@ public class FoxHoundUtilsBasicTest {
 
         result = FoxHoundUtils.isValidMove(dim, players, figure, origin, dest);
 
-        assertFalse("Move is expected to be invalid if the " +
+        assertFalse("Move is expected to be invalid if the " + 
             "figure in the origin does not match the given figure type.", result);
     }
 
@@ -166,7 +166,7 @@ public class FoxHoundUtilsBasicTest {
 
         boolean result = FoxHoundUtils.isValidMove(dim, players, figure, origin, dest);
 
-        assertFalse("Move is expected to be invalid if the " +
+        assertFalse("Move is expected to be invalid if the " + 
             "given origin is empty.", result);
     }
 
@@ -182,7 +182,7 @@ public class FoxHoundUtilsBasicTest {
 
         boolean result = FoxHoundUtils.isValidMove(dim, players, figure, origin, dest);
 
-        assertFalse("Move is expected to be invalid if the " +
+        assertFalse("Move is expected to be invalid if the " + 
             "given destination is already occupied.", result);
 
         players = new String[]{"B1","D1","F1","H1","C2"};
@@ -192,7 +192,7 @@ public class FoxHoundUtilsBasicTest {
 
         result = FoxHoundUtils.isValidMove(dim, players, figure, origin, dest);
 
-        assertFalse("Move is expected to be invalid if the " +
+        assertFalse("Move is expected to be invalid if the " + 
             "given destination is already occupied.", result);
 
         players = new String[]{"B1","D1","F1","H1","C2"};
@@ -202,7 +202,7 @@ public class FoxHoundUtilsBasicTest {
 
         result = FoxHoundUtils.isValidMove(dim, players, figure, origin, dest);
 
-        assertFalse("Move is expected to be invalid if the " +
+        assertFalse("Move is expected to be invalid if the " + 
             "given destination is already occupied.", result);
     }
 

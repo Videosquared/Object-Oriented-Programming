@@ -1,26 +1,13 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.util.Scanner;
-
 /**
  * A utility class for the fox hound program.
  *
  * It contains helper functions for all file input / output
  * related operations such as saving and loading a game.
  */
-
 public class FoxHoundIO {
-
-    /**
-     * This will load the game from the file name supplied by the user
-     *
-     * @param players this contains the current coordinates of the players on the game board
-     * @param path this is the path that contains the file name
-     * @return
-     */
     public static char loadGame(String[] players, Path path) {
         if (players == null) {
             throw new NullPointerException("ERROR: players array is null.");
@@ -29,47 +16,33 @@ public class FoxHoundIO {
         } else if (path == null) {
             throw new NullPointerException("ERROR: file path is null");
         }
-
+        String fileName = path.toString();
         char nextTurn = '#';
         char tempTurn;
         String[] tempPlayers = new String[5];
         String[] temp = new String[6];
         String tempInput = "";
-        File file = new File(path.toString());
-
+        File file = new File(fileName);
         Scanner scanner = null;
         try {
             scanner = new Scanner(file);
         } catch (FileNotFoundException e) {
-            System.err.println("ERROR: File loading failed.");
+            System.err.println("ERROR: file not found. ");
         }
         assert scanner != null;
         while (scanner.hasNextLine()) {
             tempInput = scanner.nextLine();
         }
         scanner.close();
-
         tempTurn = tempInput.charAt(1);
         temp = tempInput.split(" ");
         System.arraycopy(temp, 1, tempPlayers, 0, 5);
-
         if (tempTurn == FoxHoundUtils.FOX_FIELD || tempTurn == FoxHoundUtils.HOUND_FIELD) {
             nextTurn = tempTurn;
             System.arraycopy(tempPlayers, 0, players, 0, 5);
         }
-
         return nextTurn;
     }
-
-
-    /**
-     * This will save who's turn it is and all the current positions on the game board into a text file.
-     *
-     * @param players array containing all the current player coordinates
-     * @param figure who's turn is it to move  (F or H)
-     * @param path file name
-     * @return true if saved successfully else false
-     */
     public static boolean saveGame(String[] players, char figure, Path path) {
         if (players == null) {
             throw new NullPointerException("ERROR: players array is null.");
@@ -80,12 +53,10 @@ public class FoxHoundIO {
         } else if (path == null) {
             throw new NullPointerException("ERROR: file path is null");
         }
-
         boolean saveFlag = false;
         int counter = 1;
         String fileName = path.toString();
         File file = new File(fileName);
-
         try {
             FileWriter myWriter = new FileWriter(file);
             myWriter.write(figure + " ");
@@ -97,11 +68,9 @@ public class FoxHoundIO {
         } catch (IOException e) {
             System.err.println("An error occurred.");
         }
-
         if (counter == 6) {
             saveFlag = true;
         }
-
         return saveFlag;
     }
 }
