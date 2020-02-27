@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="VoronoiTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-02-23T16:35:00" hostname="Videosquared1" time="0.004">
+  <properties/>
+  <testcase name="testPointDist" classname="VoronoiTest" time="0.002"/>
+  <testcase name="testFindClosestPoint" classname="VoronoiTest" time="0.0"/>
+  <testcase name="testBuildVeronoiMap" classname="VoronoiTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
