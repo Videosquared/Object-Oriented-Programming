@@ -1,16 +1,16 @@
-public class C {
+public class ListNumbersBetweenTwoNumbers {
     public
-    static void main(String[] y) {
-        int x = Integer.parseInt(y[0]);
-        int z = Integer.parseInt(y[1]);
-        if (x <= z) {
-            for (int index = x; index <= z; index++) {
+    static void main(String[] args) {
+        int numA = Integer.parseInt(args[0]);
+        int numB = Integer.parseInt(args[1]);
+        if (numA <= numB) {
+            for (int index = numA; index <= numB; index++) {
                 if (index % 2 == 0) {
                     System.out.print(index + " ");
                 }
             }
         } else {
-            System.out.println(x + " cannot be greater than " + z);
+            System.out.println(numA + " cannot be greater than " + numB);
         }
     }
 }
