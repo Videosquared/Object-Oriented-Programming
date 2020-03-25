@@ -19,7 +19,6 @@ public class AddCmd extends LibraryCommand {
         super(CommandType.ADD, argInput);
     }
 
-
     /**
      * This will
      *
@@ -29,7 +28,7 @@ public class AddCmd extends LibraryCommand {
     @Override
     protected boolean parseArguments(String argumentInput) {
         Objects.requireNonNull(argumentInput, "Error: given argumentInput must not be null.");
-        if (argumentInput.contains(".csv")) {
+        if (!argumentInput.isBlank() && argumentInput.substring(argumentInput.length() - 4).equals(".csv")) {
             dataPath = Paths.get(argumentInput);
             return true;
         } else {
@@ -38,8 +37,7 @@ public class AddCmd extends LibraryCommand {
     }
 
     /**
-     * This will execute the ADD command.
-     * This will add all the entries of the csv to our database of books already.
+     * This will execute the ADD command and will add all the entries of the csv to our database of books already.
      *
      * @param data book data to be considered for command execution.
      */

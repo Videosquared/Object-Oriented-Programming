@@ -1,10 +1,33 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Test {
     public static void main(String[] args) {
+
+        String a = "BOO.csv";
+
+
+        System.out.println(a.substring(a.length() - 4));
+
+    }
+}
+
+/*
+
+
+        HashMap<Character, String> data = new HashMap<>();
+
+        data.put('A', "test1");
+        data.put('A', "test2");
+
+        for (Map.Entry<Character, String> entry : data) {
+            System.out.println(entry.getKey() + "-" + entry.getValue());
+        }
+
+
+
         String a = "hello world how egsoijf sjfsodnfsdbf sf";
         String[] b = a.split(" ", 2);
         boolean c = b.length == 2 && !b[1].isEmpty();
@@ -27,10 +50,6 @@ public class Test {
 
         System.out.println(names);
 
-
-    }
-}
-/*
     String a = "Hello World";
     System.out.println(Arrays.toString(a.split("-")));
 

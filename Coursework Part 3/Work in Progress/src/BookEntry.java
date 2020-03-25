@@ -1,4 +1,3 @@
-import java.awt.print.Book;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -32,7 +31,7 @@ public class BookEntry {
         }
         output.deleteCharAt(output.length() - 1).deleteCharAt(output.length() - 1).append("\n");
 
-        output.append("Rating: ").append(String.format("%.2f",rating)).append("\n");
+        output.append("Rating: ").append(String.format("%.2f", rating)).append("\n");
         output.append("ISBN: ").append(ISBN).append("\n");
         output.append(pages).append(" pages");
 

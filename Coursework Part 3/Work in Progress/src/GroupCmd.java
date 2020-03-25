@@ -46,7 +46,7 @@ public class GroupCmd extends LibraryCommand{
     public void groupByTitle(List<BookEntry> books) {
         Objects.requireNonNull(books, "Given books must not be null.");
 
-        HashMap<String, String> titleMap = new HashMap<>();
+        HashMap<Character, String> titleMap = new HashMap<>();
         for (BookEntry book : books) {
             titleMap.put(book.getTitle().charAt(0), book.getTitle());
         }
