@@ -1,15 +1,29 @@
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.Collections;
+import java.util.stream.Collectors;
+import java.util.ArrayList;
+
 
 public class Test {
     public static void main(String[] args) {
 
-        String a = "BOO.csv";
+        String[] a = {"123", "a", "B2", "A", "B3", "5"};
 
 
-        System.out.println(a.substring(a.length() - 4));
+        List<String> b = new ArrayList<>(Arrays.asList(a));
+        List<String> x = new ArrayList<>();
+        System.out.println(b);
+        System.out.println(x.size());
+
+
+        List<String> newList = b.stream().distinct().collect(Collectors.toList());
+        System.out.println(newList);
+        newList.sort(String.CASE_INSENSITIVE_ORDER);
+        System.out.println(newList);
+
+
+
+
 
     }
 }

@@ -82,6 +82,12 @@ public class LibraryFileLoader {
         return output;
     }
 
+    /**
+     * This will split the string of the line into the required types and then create and BookEntry class instance and return it
+     *
+     * @param fileLine string of one file line
+     * @return return an book entry class instance
+     */
     public static BookEntry splitFileContent(String fileLine) {
         Objects.requireNonNull(fileLine, "Given fileLine must not be null.");
         String[] allData = fileLine.split(",");

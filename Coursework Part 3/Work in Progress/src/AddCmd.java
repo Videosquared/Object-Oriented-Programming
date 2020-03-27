@@ -20,7 +20,8 @@ public class AddCmd extends LibraryCommand {
     }
 
     /**
-     * This will
+     * This will check if the file path is in the correct format (ending with ".csv") and
+     * then parse it into the instance variable
      *
      * @param argumentInput argument input for this command.
      * @return true if the given path is to the correct file format .csv else false.
