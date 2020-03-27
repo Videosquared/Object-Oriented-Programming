@@ -1,6 +1,9 @@
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * List all the books in the short or long format
+ */
 public class ListCmd extends LibraryCommand{
 
     /** This is to hold the format of the short to be compared to*/
@@ -66,7 +69,7 @@ public class ListCmd extends LibraryCommand{
      *
      * @param books list of book entries
      */
-    public void printShort(List<BookEntry> books) {
+    private void printShort(List<BookEntry> books) {
         for (BookEntry book : books) {
             System.out.println(book.getTitle());
         }
@@ -77,7 +80,7 @@ public class ListCmd extends LibraryCommand{
      *
      * @param books list of all the book entries
      */
-    public void printLong(List<BookEntry> books) {
+    private void printLong(List<BookEntry> books) {
         for (BookEntry book : books) {
             System.out.println(book.toString());
             System.out.println();

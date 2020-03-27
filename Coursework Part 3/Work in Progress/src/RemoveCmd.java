@@ -2,18 +2,57 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Remove command removes books by title or author and value specified by the user
+ */
 public class RemoveCmd extends LibraryCommand{
 
+    /** This holds the format for TITLE to be compared to*/
     private final String TITLE = "TITLE";
+    /** This holds the format for AUTHOR to be compared to*/
     private final String AUTHOR = "AUTHOR";
 
+    /** This holds the type to be searched for Author or title */
     private String type;
+    /** This is the value to be searched for when removing data*/
     private String removeValue;
 
+    /**
+     * Create an remove command
+     *
+     * @param argInput is expected to hold the values to be removed
+     */
     public RemoveCmd(String argInput) {
         super(CommandType.REMOVE, argInput);
     }
 
+    /**
+     * This will split the data and check if the first value split is
+     * TITLE or AUTHOR and if so then it is saved for later use
+     *
+     * @param argumentInput argument input for this command
+     * @return true if the first arugment is TITLE or AUTHOR and second argument is not empty else false
+     */
+    @Override
+    protected boolean parseArguments(String argumentInput) {
+        Objects.requireNonNull(argumentInput, "Given argumentInput must not be null.");
+        String[] splitInfo = argumentInput.split(" ", 2);
+
+        if (isFieldCorrect(splitInfo[0]) && isRemoveValueGiven(splitInfo)) {
+            type = splitInfo[0];
+            removeValue = splitInfo[1];
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * This will check the user selection and then remove books by either
+     * TITLE or AUTHOR depending on the user's choice
+     *
+     * @param data book data to be considered for command execution.
+     */
     @Override
     public void execute(LibraryData data) {
         Objects.requireNonNull(data, "Given data must not be null.");
@@ -27,7 +66,13 @@ public class RemoveCmd extends LibraryCommand{
         }
     }
 
-    public void removeAuthor(Iterator<BookEntry> bookIter) {
+    /**
+     * This will remove all the books that have the author name
+     * specified by the user
+     *
+     * @param bookIter BookEntry iterator object
+     */
+    private void removeAuthor(Iterator<BookEntry> bookIter) {
         Objects.requireNonNull(bookIter, "Given books must not be null.");
         int counter = 0;
 
@@ -49,7 +94,13 @@ public class RemoveCmd extends LibraryCommand{
         }
     }
 
-    public void removeTitle(Iterator<BookEntry> bookIter) {
+    /**
+     * This will remove the single book with the exact title
+     * entered by the user
+     *
+     * @param bookIter BookEntry iterator object
+     */
+    private void removeTitle(Iterator<BookEntry> bookIter) {
         Objects.requireNonNull(bookIter, "Given books must not be null.");
         int counter = 0;
 
@@ -68,25 +119,24 @@ public class RemoveCmd extends LibraryCommand{
         }
     }
 
-    @Override
-    protected boolean parseArguments(String argumentInput) {
-        Objects.requireNonNull(argumentInput, "Given argumentInput must not be null.");
-        String[] splitInfo = argumentInput.split(" ", 2);
-
-        if (isFieldCorrect(splitInfo[0]) && isRemoveValueGiven(splitInfo)) {
-            type = splitInfo[0];
-            removeValue = splitInfo[1];
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean isFieldCorrect(String typeInfo) {
+    /**
+     * This checks if the input is either TITLE or AUTHOR
+     *
+     * @param typeInfo user input to be checked
+     * @return true if it is either TITLE or AUTHOR
+     */
+    private boolean isFieldCorrect(String typeInfo) {
         return typeInfo.equals(TITLE) || typeInfo.equals(AUTHOR);
     }
 
-    public boolean isRemoveValueGiven(String[] splitData) {
+    /**
+     * Checks if the user argument for which book to remove is
+     * empty or not
+     *
+     * @param splitData original command line argument split into 2
+     * @return true if its not empty and it exists
+     */
+    private boolean isRemoveValueGiven(String[] splitData) {
         return splitData.length == 2 && !splitData[1].isEmpty();
     }
 }

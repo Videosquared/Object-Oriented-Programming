@@ -1,6 +1,10 @@
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Search command searches through the all the book entries and print the
+ * the matching results
+ */
 public class SearchCmd extends LibraryCommand {
 
     /** This will hold the value to be searched for */
@@ -65,7 +69,7 @@ public class SearchCmd extends LibraryCommand {
      * @param value string to be checked
      * @return true if its one word else false
      */
-    public static boolean isOneWord(String value) {
+    private boolean isOneWord(String value) {
         return value.lastIndexOf(" ") == -1;
     }
 }

@@ -142,7 +142,7 @@ public class BookEntry {
      * @param isbn ISBN of the book (must not be null)
      * @param pages number of pages of the book (must not be negative)
      */
-    public static void isBookEntryValid(String title, String[] authors, float rating, String isbn, int pages) {
+    private void isBookEntryValid(String title, String[] authors, float rating, String isbn, int pages) {
         Objects.requireNonNull(title, "Given title type must not be null.");
         Objects.requireNonNull(authors, "Given authors type must not be null.");
         Objects.requireNonNull(isbn, "Given isbn type must not be null.");
