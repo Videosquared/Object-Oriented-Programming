@@ -29,7 +29,7 @@ public class AddCmd extends LibraryCommand {
     @Override
     protected boolean parseArguments(String argumentInput) {
         Objects.requireNonNull(argumentInput, "Error: given argumentInput must not be null.");
-        if (!argumentInput.isBlank() && argumentInput.substring(argumentInput.length() - 4).equals(".csv")) {
+        if (argumentInput.endsWith(".csv")) {
             dataPath = Paths.get(argumentInput);
             return true;
         } else {
