@@ -78,7 +78,7 @@ public class GroupCmd extends LibraryCommand{
 
     /**
      * This will check if there is book entries already or not
-     * @param books
+     * @param books this is a list of all book entries
      * @return true if the there is no book entries else false
      */
     private boolean isDataEmpty(List<BookEntry> books) {

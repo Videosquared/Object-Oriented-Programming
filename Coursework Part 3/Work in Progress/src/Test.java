@@ -6,6 +6,22 @@ import java.util.ArrayList;
 
 public class Test {
     public static void main(String[] args) {
+        HashMap<Character, List<String>> booksMap = new HashMap<>();
+        for (int i = 0; i < 26; i++) {
+            List<String> values = new ArrayList<>();
+            booksMap.put((char)('A' + i), values);
+        }
+        List<String> values = new ArrayList<>();
+        booksMap.put('0', values);
+
+        System.out.println(booksMap.keySet());
+
+
+
+    }
+}
+
+/*
 
         String[] a = {"123", "a", "B2", "A", "B3", "5"};
 
@@ -20,15 +36,6 @@ public class Test {
         System.out.println(newList);
         newList.sort(String.CASE_INSENSITIVE_ORDER);
         System.out.println(newList);
-
-
-
-
-
-    }
-}
-
-/*
 
 
         HashMap<Character, String> data = new HashMap<>();
