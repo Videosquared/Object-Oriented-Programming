@@ -9,7 +9,7 @@ public final class CommandFactory { // the final keyword prevents subclassing of
     private CommandFactory() {
         // Utility classes do not need constructors and this is a way of preventing them 
         // from being instantiated accidentally.
-        throw new UnsupportedOperationException("This constructor should never be used.");
+        // throw new UnsupportedOperationException("This constructor should never be used.");
     }
 
     /**
@@ -34,6 +34,8 @@ public final class CommandFactory { // the final keyword prevents subclassing of
                 case SEARCH: return new SearchCmd(argumentInput);
                 case REMOVE: return new RemoveCmd(argumentInput);
                 case GROUP: return new GroupCmd(argumentInput);
+                default:
+                    throw new IllegalArgumentException("Command type not supported: " + cmdType);
             }
         } catch (IllegalArgumentException e) {
             System.err.println("ERROR: " + e.getMessage());

@@ -25,6 +25,7 @@ public class SearchCmd extends LibraryCommand {
      *
      * @param argumentInput argument input for this command
      * @return true if its not empty and its one word else false
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
@@ -45,6 +46,7 @@ public class SearchCmd extends LibraryCommand {
      * if so print the book title
      *
      * @param data book data to be considered for command execution.
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     public void execute(LibraryData data) {

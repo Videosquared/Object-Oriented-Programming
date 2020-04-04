@@ -32,6 +32,7 @@ public class RemoveCmd extends LibraryCommand{
      *
      * @param argumentInput argument input for this command
      * @return true if the first arugment is TITLE or AUTHOR and second argument is not empty else false
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
@@ -52,6 +53,7 @@ public class RemoveCmd extends LibraryCommand{
      * TITLE or AUTHOR depending on the user's choice
      *
      * @param data book data to be considered for command execution.
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     public void execute(LibraryData data) {
@@ -71,6 +73,7 @@ public class RemoveCmd extends LibraryCommand{
      * specified by the user
      *
      * @param bookIter BookEntry iterator object
+     * @throws NullPointerException if given parameter is null
      */
     private void removeAuthor(Iterator<BookEntry> bookIter) {
         Objects.requireNonNull(bookIter, "Given books must not be null.");
@@ -99,6 +102,7 @@ public class RemoveCmd extends LibraryCommand{
      * entered by the user
      *
      * @param bookIter BookEntry iterator object
+     * @throws NullPointerException if given parameter is null
      */
     private void removeTitle(Iterator<BookEntry> bookIter) {
         Objects.requireNonNull(bookIter, "Given books must not be null.");

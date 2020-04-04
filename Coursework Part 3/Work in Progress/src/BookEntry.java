@@ -141,6 +141,7 @@ public class BookEntry {
      * @param rating rating of the book (must be between 0 - 5)
      * @param isbn ISBN of the book (must not be null)
      * @param pages number of pages of the book (must not be negative)
+     * @throws NullPointerException if given parameters is null
      */
     private void isBookEntryValid(String title, String[] authors, float rating, String isbn, int pages) {
         Objects.requireNonNull(title, "Given title type must not be null.");

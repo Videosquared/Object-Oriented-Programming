@@ -29,6 +29,7 @@ public class ListCmd extends LibraryCommand{
      *
      * @param argumentInput argument input for this command
      * @return true if the user chose either long or short else false
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
@@ -51,6 +52,7 @@ public class ListCmd extends LibraryCommand{
      * short or long selected by the user
      *
      * @param data book data to be considered for command execution.
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     public void execute(LibraryData data) {

@@ -25,6 +25,7 @@ public class AddCmd extends LibraryCommand {
      *
      * @param argumentInput argument input for this command.
      * @return true if the given path is to the correct file format .csv else false.
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
@@ -41,6 +42,7 @@ public class AddCmd extends LibraryCommand {
      * This will execute the ADD command and will add all the entries of the csv to our database of books already.
      *
      * @param data book data to be considered for command execution.
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     public void execute(LibraryData data) {

@@ -37,6 +37,7 @@ public class GroupCmd extends LibraryCommand{
      *
      * @param argumentInput argument input for this command
      * @return true if it's TITLE or AUTHOR else false
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
@@ -58,6 +59,7 @@ public class GroupCmd extends LibraryCommand{
      * output
      *
      * @param data book data to be considered for command execution.
+     * @throws NullPointerException if given parameter is null
      */
     @Override
     public void execute(LibraryData data) {
@@ -80,6 +82,7 @@ public class GroupCmd extends LibraryCommand{
      * This will check if there is book entries already or not
      * @param books this is a list of all book entries
      * @return true if the there is no book entries else false
+     * @throws NullPointerException if given parameter is null
      */
     private boolean isDataEmpty(List<BookEntry> books) {
         return books.isEmpty();
@@ -91,6 +94,7 @@ public class GroupCmd extends LibraryCommand{
      * insensitive)
      *
      * @param books contains all the book entries in a List
+     * @throws NullPointerException if given parameter is null
      */
     private void groupByTitle(List<BookEntry> books) {
         Objects.requireNonNull(books, "Given books must not be null.");
@@ -121,6 +125,7 @@ public class GroupCmd extends LibraryCommand{
      *
      * @param bookMap hashmap that holds all the books corresponding
      *                to the characters
+     * @throws NullPointerException if given parameter is null
      */
     private void printTitle(HashMap<Character, List<String>> bookMap) {
         Objects.requireNonNull(bookMap, "Given bookMap must not be null.");
@@ -146,6 +151,7 @@ public class GroupCmd extends LibraryCommand{
      * in the alphabet and one more for numerical values.
      *
      * @return hashmap with 26 characters and 1 numerical as keys
+     * @throws NullPointerException if given parameter is null
      */
     private HashMap<Character, List<String>> initHashMapTitle() {
         HashMap<Character, List<String>> booksMap = new HashMap<>();
@@ -164,6 +170,7 @@ public class GroupCmd extends LibraryCommand{
      * may appear multiple times due to multiple authors
      *
      * @param books contains all the book entries in a List
+     * @throws NullPointerException if given parameter is null
      */
     private void groupByAuthor(List<BookEntry> books) {
         Objects.requireNonNull(books, "Given books must not be null.");
@@ -185,6 +192,7 @@ public class GroupCmd extends LibraryCommand{
      *
      * @param authorMap hashmap that holds all the books titles
      *                  corresponding to their authors
+     * @throws NullPointerException if given parameter is null
      */
     private void printAuthor(HashMap<String, List<String>> authorMap) {
         List<String> authors = new ArrayList<>(authorMap.keySet());
@@ -207,6 +215,7 @@ public class GroupCmd extends LibraryCommand{
      *
      * @param books list of all book entries
      * @return hashmap with all authors only appearing once as keys
+     * @throws NullPointerException if given parameter is null
      */
     private HashMap<String, List<String>> initHashMapAuthor(List<BookEntry> books) {
         List<String> authors = new ArrayList<>();
