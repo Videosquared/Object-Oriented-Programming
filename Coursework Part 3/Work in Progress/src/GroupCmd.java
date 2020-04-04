@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import com.sun.jdi.ArrayReference;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -113,10 +111,6 @@ public class GroupCmd extends LibraryCommand{
             }
         }
 
-        if (bookMap.get(NUMERICALTITLE).isEmpty()) {
-            bookMap.remove(NUMERICALTITLE);
-        }
-
         printTitle(bookMap);
     }
 
@@ -136,7 +130,7 @@ public class GroupCmd extends LibraryCommand{
                 for (String title : values) {
                     System.out.println(title);
                 }
-            } else if (key == NUMERICALTITLE) {
+            } else if (key == NUMERICALTITLE && !values.isEmpty()) {
                 System.out.println("## [0-9]");
                 for (String title : values) {
                     System.out.println(title);
@@ -222,7 +216,9 @@ public class GroupCmd extends LibraryCommand{
         for (BookEntry book : books) {
             authors.addAll(Arrays.asList(book.getAuthors()));
         }
-        List<String> authorSorted = authors.stream().distinct().sorted(String.CASE_INSENSITIVE_ORDER).collect(Collectors.toList());
+        // List<String> authorSorted = authors.stream().distinct().sorted(String.CASE_INSENSITIVE_ORDER).collect(Collectors.toList());
+        List<String> authorSorted = new ArrayList<>(new HashSet<>(authors));
+        Collections.sort(authorSorted);
 
         HashMap<String, List<String>> authorMap = new HashMap<>();
         for (String author : authorSorted) {

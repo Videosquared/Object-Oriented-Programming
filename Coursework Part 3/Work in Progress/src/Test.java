@@ -6,6 +6,12 @@ import java.util.ArrayList;
 
 public class Test {
     public static void main(String[] args) {
+
+
+    }
+}
+
+/*
         HashMap<Character, List<String>> booksMap = new HashMap<>();
         for (int i = 0; i < 26; i++) {
             List<String> values = new ArrayList<>();
@@ -15,13 +21,6 @@ public class Test {
         booksMap.put('0', values);
 
         System.out.println(booksMap.keySet());
-
-
-
-    }
-}
-
-/*
 
         String[] a = {"123", "a", "B2", "A", "B3", "5"};
 

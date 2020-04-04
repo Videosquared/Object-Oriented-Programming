@@ -90,11 +90,8 @@ public class RemoveCmd extends LibraryCommand{
             }
         }
 
-        if (counter == 0) {
-            System.out.println(counter + " books removed for author: " + removeValue);
-        } else {
-            System.out.println(counter + " books removed for author: " + removeValue);
-        }
+        System.out.println(counter + " books removed for author: " + removeValue);
+
     }
 
     /**
