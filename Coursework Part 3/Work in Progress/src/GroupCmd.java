@@ -149,10 +149,12 @@ public class GroupCmd extends LibraryCommand{
      */
     private HashMap<Character, List<String>> initHashMapTitle() {
         HashMap<Character, List<String>> booksMap = new HashMap<>();
+
         for (int i = 0; i < 26; i++) {
             List<String> values = new ArrayList<>();
             booksMap.put((char)('A' + i), values);
         }
+
         List<String> values = new ArrayList<>();
         booksMap.put(NUMERICALTITLE, values);
         return booksMap;
@@ -189,8 +191,9 @@ public class GroupCmd extends LibraryCommand{
      * @throws NullPointerException if given parameter is null
      */
     private void printAuthor(HashMap<String, List<String>> authorMap) {
-        List<String> authors = new ArrayList<>(authorMap.keySet());
-        authors.sort(String.CASE_INSENSITIVE_ORDER);
+        List<String> authorsUnsorted = new ArrayList<>(authorMap.keySet());
+        List<String> authors = new ArrayList<>(new HashSet<>(authorsUnsorted));
+        Collections.sort(authors);
 
         for (String key : authors) {
             List<String> values = authorMap.get(key);
@@ -216,7 +219,7 @@ public class GroupCmd extends LibraryCommand{
         for (BookEntry book : books) {
             authors.addAll(Arrays.asList(book.getAuthors()));
         }
-        // List<String> authorSorted = authors.stream().distinct().sorted(String.CASE_INSENSITIVE_ORDER).collect(Collectors.toList());
+
         List<String> authorSorted = new ArrayList<>(new HashSet<>(authors));
         Collections.sort(authorSorted);
 
