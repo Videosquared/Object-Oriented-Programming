@@ -66,18 +66,16 @@ public class LibraryFileLoader {
      * 
      * @return books parsed from the previously loaded book data or an empty list
      * if no book data has been loaded yet.
-     * @throws UnsupportedOperationException Not implemented yet!
      */
     public List<BookEntry> parseFileContent() {
         List<BookEntry> output = new ArrayList<>();
 
         if (contentLoaded()) {
             for (int i = 1; i < fileContent.size(); i++) {
-             output.add(splitFileContent(fileContent.get(i)));
+                output.add(splitFileContent(fileContent.get(i)));
             }
         } else {
             System.err.println("ERROR: No content loaded before parsing.");
-            return output;
         }
         return output;
     }
