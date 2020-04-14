@@ -18,6 +18,8 @@ public class ListCmd extends LibraryCommand{
      * Create an List command
      *
      * @param argInput is expected to hold the the choice of long or short chosen by the user
+     * @throws IllegalArgumentException if given arguments are invalid
+     * @throws NullPointerException if the given argumentInput is null.
      */
     public ListCmd(String argInput) {
         super(CommandType.LIST, argInput);

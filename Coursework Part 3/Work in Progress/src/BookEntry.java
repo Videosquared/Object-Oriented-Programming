@@ -25,6 +25,8 @@ public class BookEntry {
      * @param rating rating of the book
      * @param isbn ISBN of the book
      * @param pages number of pages of the book
+     * @throws NullPointerException if given parameters is null
+     * @throws IllegalArgumentException if rating is not between 0 and 5 OR pages are negative
      */
     public BookEntry(String title, String[] authors, float rating, String isbn, int pages) {
         isBookEntryValid(title, authors, rating, isbn, pages);

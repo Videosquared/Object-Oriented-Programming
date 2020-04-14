@@ -14,6 +14,8 @@ public class AddCmd extends LibraryCommand {
      * Create an add command.
      *
      * @param argInput is expected to hold the path to the file to be read from.
+     * @throws IllegalArgumentException if given arguments are invalid
+     * @throws NullPointerException if the given argumentInput is null.
      */
     public AddCmd(String argInput) {
         super(CommandType.ADD, argInput);

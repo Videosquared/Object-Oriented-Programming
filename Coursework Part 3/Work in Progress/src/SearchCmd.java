@@ -14,6 +14,8 @@ public class SearchCmd extends LibraryCommand {
      * Create an search command
      *
      * @param argInput is expected to hold the value to be searched for within all book entries
+     * @throws IllegalArgumentException if given arguments are invalid
+     * @throws NullPointerException if the given argumentInput is null.
      */
     public SearchCmd(String argInput) {
         super(CommandType.SEARCH, argInput);

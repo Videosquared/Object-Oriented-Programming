@@ -20,7 +20,9 @@ public class RemoveCmd extends LibraryCommand{
     /**
      * Create an remove command
      *
-     * @param argInput is expected to hold the values to be removed
+     * @param argInput is expected to hold the values to be remove
+     * @throws IllegalArgumentException if given arguments are invalid
+     * @throws NullPointerException if the given argumentInput is null.
      */
     public RemoveCmd(String argInput) {
         super(CommandType.REMOVE, argInput);

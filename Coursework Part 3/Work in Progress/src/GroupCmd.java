@@ -27,6 +27,8 @@ public class GroupCmd extends LibraryCommand{
      * Create an group command
      *
      * @param argInput is expected to hold TITLE or AUTHOR chosen by the user
+     * @throws IllegalArgumentException if given arguments are invalid
+     * @throws NullPointerException if the given argumentInput is null.
      */
     public GroupCmd(String argInput) {
         super(CommandType.GROUP, argInput);
