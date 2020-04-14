@@ -107,13 +107,13 @@ public class RemoveCmd extends LibraryCommand{
         Objects.requireNonNull(bookIter, "Given books must not be null.");
         int counter = 0;
 
-            while (bookIter.hasNext()) {
-                String title = bookIter.next().getTitle();
-                if (title.equals(removeValue)) {
-                    bookIter.remove();
-                    counter++;
-                }
+        while (bookIter.hasNext()) {
+            String title = bookIter.next().getTitle();
+            if (title.equals(removeValue)) {
+                bookIter.remove();
+                counter++;
             }
+        }
 
         if (counter > 0) {
             System.out.println(removeValue + ": removed successfully.");

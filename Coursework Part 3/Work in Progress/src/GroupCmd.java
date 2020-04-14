@@ -105,6 +105,7 @@ public class GroupCmd extends LibraryCommand{
 
         for (BookEntry book : books) {
             char tempChar = book.getTitle().toUpperCase().charAt(0);
+
             if (Character.isLetter(tempChar)) {
                 List<String> tempValues = bookMap.get(tempChar);
                 tempValues.add(book.getTitle());
@@ -130,6 +131,7 @@ public class GroupCmd extends LibraryCommand{
         Objects.requireNonNull(bookMap, "Given bookMap must not be null.");
         for (char key : bookMap.keySet()) {
             List<String> values = bookMap.get(key);
+
             if (!values.isEmpty() && key != NUMERICALTITLE) {
                 System.out.println("## " + key);
                 for (String title : values) {
@@ -202,6 +204,7 @@ public class GroupCmd extends LibraryCommand{
 
         for (String key : authors) {
             List<String> values = authorMap.get(key);
+
             if (!values.isEmpty()) {
                 System.out.println("## " + key);
                 for (String value : values) {
@@ -221,14 +224,15 @@ public class GroupCmd extends LibraryCommand{
      */
     private HashMap<String, List<String>> initHashMapAuthor(List<BookEntry> books) {
         List<String> authors = new ArrayList<>();
+
         for (BookEntry book : books) {
             authors.addAll(Arrays.asList(book.getAuthors()));
         }
 
         List<String> authorSorted = new ArrayList<>(new HashSet<>(authors));
         Collections.sort(authorSorted);
-
         HashMap<String, List<String>> authorMap = new HashMap<>();
+
         for (String author : authorSorted) {
             List<String> values = new ArrayList<>();
             authorMap.put(author, values);
